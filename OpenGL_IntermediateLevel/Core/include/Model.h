@@ -54,10 +54,14 @@ private:
     }
 
     void processNode(aiNode *node, const aiScene *scene) {
+        //std::cout << "node->mNumMeshes : " << node->mNumMeshes << std::endl;
         for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
             aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-            meshes.push_back(processMesh(mesh, scene));
+            Mesh oneMesh = processMesh(mesh, scene);
+            
+            meshes.push_back(oneMesh);
         }
+        //std::cout << "node->mNumChildren : " << node->mNumChildren << std::endl;
         for (unsigned int i = 0; i < node->mNumChildren; ++i) {
             processNode(node->mChildren[i], scene);
         }

@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Core">
+      <UniqueIdentifier>{e6645ae9-8b5e-4c7c-a65e-07b87d049c5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Core">
+      <UniqueIdentifier>{f9700ca1-1f4f-43fb-89c7-22402007272f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Core\include\CameraFPS.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\Mesh.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\Model.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\Shader.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\stb_image.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_DepthTest.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_StencilTesting.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_Blending.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_FaceCulling.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_FrameBuffers.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_CubemapsSkybox.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_GLSL.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_Geometry.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_Instancing.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\include\OpenGL_AntiAliasing.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Core\src\Shader.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\stb_image.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_DepthTest.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_StencilTesting.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_Blending.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_FaceCulling.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_FrameBuffers.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_CubemapsSkybox.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_GLSL.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_Geometry.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_Instancing.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\src\OpenGL_AntiAliasing.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Core\Shader\1.1.depth_testing.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\1.1.depth_testing.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\2.stencil_testing.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\2.stencil_testing.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\2.stencil_single_color.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\3.1.blending.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\3.1.blending.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\3.2.blending.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\3.2.blending.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\5.1.framebuffers.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\5.1.framebuffers.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\5.1.framebuffers_screen.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\5.1.framebuffers_screen.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.1.cubemaps.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.1.cubemaps.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.1.skybox.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.1.skybox.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.2.cubemaps.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.2.cubemaps.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.2.skybox.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.2.skybox.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.3.refract.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.4.1.pointSizeFragCoord.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.4.1.pointSizeFragCoord.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.4.2.BlockFragDepth.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\6.4.2.BlockFragDepth.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.1.geometry_shader.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.1.geometry_shader.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.1.geometry_shader.gs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.2.geometry_shader.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.2.geometry_shader.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.2.geometry_shader.gs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.3.default.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.3.default.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.3.normal_visualization.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.3.normal_visualization.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\9.3.normal_visualization.gs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\10.1.instancing.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\10.1.instancing.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\10.2.instancing.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\10.2.instancing.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\10.3.asteroids.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\10.3.asteroids.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\10.3.planet.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\10.3.planet.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\11.1.anti_aliasing.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\11.1.anti_aliasing.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\11.2.anti_aliasing.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\11.2.anti_aliasing.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\11.2.aa_post.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Core\Shader\11.2.aa_post.fs">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>

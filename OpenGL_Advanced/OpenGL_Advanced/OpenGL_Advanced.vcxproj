@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{9E2A125C-2D1F-4AC3-B348-35E87010BCE2}</ProjectGuid>
+    <RootNamespace>OpenGLAdvanced</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)..\Library\Assimp\include;$(SolutionDir)..\Library\glew\include;$(SolutionDir)..\Library\glfw\include;$(SolutionDir)..\Library\glm;$(SolutionDir)Core\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\Library\Assimp\lib\Debug;$(SolutionDir)..\Library\glew\lib\Debug\x64;$(SolutionDir)..\Library\glfw\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>opengl32.lib;assimp-vc141-mtd.lib;glew32d.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Core\include\CameraFPS.h" />
+    <ClInclude Include="..\Core\include\Mesh.h" />
+    <ClInclude Include="..\Core\include\Model.h" />
+    <ClInclude Include="..\Core\include\OpenGL_AntiAliasing.h" />
+    <ClInclude Include="..\Core\include\OpenGL_Blending.h" />
+    <ClInclude Include="..\Core\include\OpenGL_CubemapsSkybox.h" />
+    <ClInclude Include="..\Core\include\OpenGL_DepthTest.h" />
+    <ClInclude Include="..\Core\include\OpenGL_FaceCulling.h" />
+    <ClInclude Include="..\Core\include\OpenGL_FrameBuffers.h" />
+    <ClInclude Include="..\Core\include\OpenGL_Geometry.h" />
+    <ClInclude Include="..\Core\include\OpenGL_GLSL.h" />
+    <ClInclude Include="..\Core\include\OpenGL_Instancing.h" />
+    <ClInclude Include="..\Core\include\OpenGL_StencilTesting.h" />
+    <ClInclude Include="..\Core\include\Shader.h" />
+    <ClInclude Include="..\Core\include\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Core\src\OpenGL_AntiAliasing.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_Blending.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_CubemapsSkybox.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_DepthTest.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_FaceCulling.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_FrameBuffers.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_Geometry.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_GLSL.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_Instancing.cpp" />
+    <ClCompile Include="..\Core\src\OpenGL_StencilTesting.cpp" />
+    <ClCompile Include="..\Core\src\Shader.cpp" />
+    <ClCompile Include="..\Core\src\stb_image.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Core\Shader\1.1.depth_testing.fs" />
+    <None Include="..\Core\Shader\1.1.depth_testing.vs" />
+    <None Include="..\Core\Shader\10.1.instancing.fs" />
+    <None Include="..\Core\Shader\10.1.instancing.vs" />
+    <None Include="..\Core\Shader\10.2.instancing.fs" />
+    <None Include="..\Core\Shader\10.2.instancing.vs" />
+    <None Include="..\Core\Shader\10.3.asteroids.fs" />
+    <None Include="..\Core\Shader\10.3.asteroids.vs" />
+    <None Include="..\Core\Shader\10.3.planet.fs" />
+    <None Include="..\Core\Shader\10.3.planet.vs" />
+    <None Include="..\Core\Shader\11.1.anti_aliasing.fs" />
+    <None Include="..\Core\Shader\11.1.anti_aliasing.vs" />
+    <None Include="..\Core\Shader\11.2.aa_post.fs" />
+    <None Include="..\Core\Shader\11.2.aa_post.vs" />
+    <None Include="..\Core\Shader\11.2.anti_aliasing.fs" />
+    <None Include="..\Core\Shader\11.2.anti_aliasing.vs" />
+    <None Include="..\Core\Shader\2.stencil_single_color.fs" />
+    <None Include="..\Core\Shader\2.stencil_testing.fs" />
+    <None Include="..\Core\Shader\2.stencil_testing.vs" />
+    <None Include="..\Core\Shader\3.1.blending.fs" />
+    <None Include="..\Core\Shader\3.1.blending.vs" />
+    <None Include="..\Core\Shader\3.2.blending.fs" />
+    <None Include="..\Core\Shader\3.2.blending.vs" />
+    <None Include="..\Core\Shader\5.1.framebuffers.fs" />
+    <None Include="..\Core\Shader\5.1.framebuffers.vs" />
+    <None Include="..\Core\Shader\5.1.framebuffers_screen.fs" />
+    <None Include="..\Core\Shader\5.1.framebuffers_screen.vs" />
+    <None Include="..\Core\Shader\6.1.cubemaps.fs" />
+    <None Include="..\Core\Shader\6.1.cubemaps.vs" />
+    <None Include="..\Core\Shader\6.1.skybox.fs" />
+    <None Include="..\Core\Shader\6.1.skybox.vs" />
+    <None Include="..\Core\Shader\6.2.cubemaps.fs" />
+    <None Include="..\Core\Shader\6.2.cubemaps.vs" />
+    <None Include="..\Core\Shader\6.2.skybox.fs" />
+    <None Include="..\Core\Shader\6.2.skybox.vs" />
+    <None Include="..\Core\Shader\6.3.refract.fs" />
+    <None Include="..\Core\Shader\6.4.1.pointSizeFragCoord.fs" />
+    <None Include="..\Core\Shader\6.4.1.pointSizeFragCoord.vs" />
+    <None Include="..\Core\Shader\6.4.2.BlockFragDepth.fs" />
+    <None Include="..\Core\Shader\6.4.2.BlockFragDepth.vs" />
+    <None Include="..\Core\Shader\9.1.geometry_shader.fs" />
+    <None Include="..\Core\Shader\9.1.geometry_shader.gs" />
+    <None Include="..\Core\Shader\9.1.geometry_shader.vs" />
+    <None Include="..\Core\Shader\9.2.geometry_shader.fs" />
+    <None Include="..\Core\Shader\9.2.geometry_shader.gs" />
+    <None Include="..\Core\Shader\9.2.geometry_shader.vs" />
+    <None Include="..\Core\Shader\9.3.default.fs" />
+    <None Include="..\Core\Shader\9.3.default.vs" />
+    <None Include="..\Core\Shader\9.3.normal_visualization.fs" />
+    <None Include="..\Core\Shader\9.3.normal_visualization.gs" />
+    <None Include="..\Core\Shader\9.3.normal_visualization.vs" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

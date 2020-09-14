@@ -1,0 +1,8 @@
+﻿  Building Custom Rule D:/WorkSpace/OpenGLWorkSpace/Library/Assimp/assimp-5.0.1/tools/assimp_cmd/CMakeLists.txt
+  CompareDump.cpp
+  ImageExtractor.cpp
+  Main.cpp
+  WriteDumb.cpp
+  Info.cpp
+  Export.cpp
+  assimp_cmd.vcxproj -> D:\WorkSpace\OpenGLWorkSpace\Library\Assimp\assimp-5.0.1\build\tools\assimp_cmd\Debug\assimpd.exe

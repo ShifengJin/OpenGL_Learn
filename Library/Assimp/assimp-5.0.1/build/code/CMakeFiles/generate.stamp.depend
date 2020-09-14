@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+D:/WorkSpace/OpenGLWorkSpace/Library/Assimp/assimp-5.0.1/cmake-modules/FindRT.cmake
+D:/WorkSpace/OpenGLWorkSpace/Library/Assimp/assimp-5.0.1/code/CMakeLists.txt
+D:/software/CMake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
+D:/software/CMake/share/cmake-3.17/Modules/FindPackageMessage.cmake
