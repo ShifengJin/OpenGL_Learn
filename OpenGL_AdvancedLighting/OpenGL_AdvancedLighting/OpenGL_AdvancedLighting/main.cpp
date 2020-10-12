@@ -11,6 +11,7 @@
 #include "CameraFPS.h"
 #include "AdvancedLighting.h"
 #include "ShadowMappingDepth.h"
+#include "DrawCube.h"
 
 CameraFPS gCameraFPS(glm::vec3(0.f, 0.f, 3.f));
 float lastX = 640 / 2.f;
@@ -57,10 +58,10 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-    glfwWindowHint(GLFW_SAMPLES, 4);
+    //glfwWindowHint(GLFW_SAMPLES, 4);
 
-    int width = 640;
-    int height = 480;
+    int width = 800;
+    int height = 600;
 
     GLFWwindow* window = glfwCreateWindow(width, height, "Windows", NULL, NULL);
     if (window == NULL) {
@@ -105,18 +106,24 @@ int main() {
     );
 #endif
 #if SHADOWMAPPINGBASE
-    ShadowMappingBase* pShadowMappingBase = new ShadowMappingBase(width, height);
-    pShadowMappingBase->SetShadowSize(1024, 1024);
-    glm::vec3 lightPos(-2.f, 8.f, -1.f);
-    pShadowMappingBase->SetLightPos(lightPos);
-    float near_plane = 0.1f;
-    float far_plane = 100.f;
-    pShadowMappingBase->SetNearFar(near_plane, far_plane);
+    glEnable(GL_DEPTH_TEST);
+    Shadow* pShadow = new Shadow(1024, 1024, width, height);
+    glm::vec3 lightPos(-2.f, 4.f, -1.f);
+    pShadow->SetLightPos(lightPos);
+    float near_plane = 1.f;
+    float far_plane = 7.5f;
+    pShadow->SetNearFar(near_plane, far_plane);
 
     glm::mat4 lightProjection = glm::ortho(-10.f, 10.f, -10.f, 10.f, near_plane, far_plane);
     glm::mat4 lightView = glm::lookAt(lightPos, glm::vec3(0.f), glm::vec3(0.f, 1.f, 0.f));
-    pShadowMappingBase->SetLightProjection(lightProjection);
-    pShadowMappingBase->SetLightView(lightView);
+    pShadow->SetLightProjection(lightProjection);
+    pShadow->SetLightView(lightView);
+
+    DrawCube* pDrawCube = new DrawCube();
+    glm::mat4 lightModel = glm::mat4(1.f);
+    lightModel[3] = glm::vec4(lightPos, 1.f);
+    lightModel[0][0] = 0.1f; lightModel[1][1] = 0.1f; lightModel[2][2] = 0.1f;
+    pDrawCube->SetModel(lightModel);
 #endif
 
 
@@ -127,7 +134,7 @@ int main() {
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
         processInput(window);
-        glm::mat4 projection = glm::perspective(glm::radians(gCameraFPS.Zoom), (float)640 / (float)480, 0.1f, 1000.f);
+        glm::mat4 projection = glm::perspective(glm::radians(gCameraFPS.Zoom), (float)width / (float)height, 0.1f, 100.f);
 
         glm::mat4 view = gCameraFPS.GetViewMatrix();
 
@@ -159,10 +166,29 @@ int main() {
         pShadowMappingDepth->Draw();
 #endif
 #if SHADOWMAPPINGBASE
-        pShadowMappingBase->SetProjection(projection);
-        pShadowMappingBase->SetView(view);
-        pShadowMappingBase->SetCameraPosition(gCameraFPS.Position);
-        pShadowMappingBase->Draw();
+
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        pShadow->SetProjection(projection);
+        pShadow->SetView(view);
+        pShadow->SetCameraPosition(gCameraFPS.Position);
+
+        float near_plane = 1.0f, far_plane = 7.5f;
+        lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
+        lightView = glm::lookAt(lightPos, glm::vec3(0.0f), glm::vec3(0.0, 1.0, 0.0));
+        pShadow->SetNearFar(near_plane, far_plane);
+        pShadow->SetLightProjection(lightProjection);
+        pShadow->SetLightView(lightView);
+
+        pShadow->Draw();
+
+        pDrawCube->SetProjection(projection);
+        pDrawCube->SetView(view);
+        glm::vec3 color = glm::vec3(1.f, 0.f, 0.f);
+        pDrawCube->SetColor(color);
+        pDrawCube->Draw();
+
 #endif
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -178,8 +204,9 @@ int main() {
     delete pShadowMappingDepth;
 #endif
 #if SHADOWMAPPINGBASE
-    delete pShadowMappingBase;
+    delete pShadow;
 #endif
+
     glfwTerminate();
     return 0;
 }

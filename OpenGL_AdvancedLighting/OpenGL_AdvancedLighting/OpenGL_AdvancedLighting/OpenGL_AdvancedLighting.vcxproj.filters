@@ -34,7 +34,10 @@
       <Filter>源文件\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Core\src\ShadowMappingDepth.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Core\src\DrawCube.cpp">
+      <Filter>源文件\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +83,12 @@
     <None Include="..\..\Core\Shader\3.1.2.debug_quad_depth.fs">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\Core\Shader\DrawCube.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\Core\Shader\DrawCube.fs">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Core\include\AdvancedLighting.h">
@@ -101,6 +110,9 @@
       <Filter>头文件\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Core\include\ShadowMappingDepth.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Core\include\DrawCube.h">
       <Filter>头文件\Core</Filter>
     </ClInclude>
   </ItemGroup>

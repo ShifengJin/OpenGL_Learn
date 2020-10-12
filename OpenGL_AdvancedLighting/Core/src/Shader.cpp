@@ -44,7 +44,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath, const char* geo
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragment, 1, &fShaderCode, NULL);
     glCompileShader(fragment);
-    std::cout << fShaderCode << std::endl;
+    //std::cout << fShaderCode << std::endl;
     checkCompileErrors(fragment, "FRAGMENT");
 
     GLuint geometry;

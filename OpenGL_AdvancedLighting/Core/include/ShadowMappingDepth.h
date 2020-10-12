@@ -51,65 +51,54 @@ private:
     int shadowWidth, shadowHeight;
 };
 
-class ShadowMappingBase {
+class Shadow {
 public:
-    ShadowMappingBase(int viewWidth, int viewHeight);
-    ~ShadowMappingBase();
-
-    void SetLightProjection(glm::mat4& inLightProjection) {
-        lightProjection = inLightProjection;
-    }
-    void SetLightView(glm::mat4& inLightView) {
-        lightView = inLightView;
-    }
-    void SetProjection(glm::mat4& inProjection) {
-        projection = inProjection;
-    }
-    void SetView(glm::mat4& inView) {
-        view = inView;
-    }
-    void SetCameraPosition(glm::vec3& inCameraPosition) {
-        cameraPosition = inCameraPosition;
-    }
-    void SetLightPos(glm::vec3& inLightPos) {
-        lightPos = inLightPos;
-    }
-    void SetNearFar(float inNear, float inFar) {
-        near_plane = inNear;
-        far_plane = inFar;
-    }
-    void SetShadowSize(int inShadowWidth, int inShadowHeight) {
-        shadowWidth = inShadowWidth;
-        shadowHeight = inShadowHeight;
-    }
+    Shadow(int inShadowWidth, int inShadowHeight, int inSrcWidth, int inSrcHeight);
     void Draw();
+    ~Shadow();
+
+    void SetLightProjection(glm::mat4& inLightProjection) { lightProjection = inLightProjection; }
+    void SetLightView(glm::mat4& inLightView) { lightView = inLightView; }
+    void SetProjection(glm::mat4& inProjection) { projection = inProjection; }
+    void SetView(glm::mat4& inView) { view = inView; }
+    void SetCameraPosition(glm::vec3& inCameraPosition) { cameraPosition = inCameraPosition; }
+    void SetLightPos(glm::vec3& inLightPos) { lightPos = inLightPos; }
+    void SetNearFar(float nearV, float farV) { near_plane = nearV; far_plane = farV; }
+
 private:
+
+    GLuint loadTexture(const char* path);
+    void renderScene(Shader *shader);
     void renderCube();
     void renderQuad();
-    void renderScene(Shader* inpShader);
-    GLuint loadTexture(char const* path);
+
 private:
+
+    int shadowWidth, shadowHeight;
+    int srcWidth, srcHeight;
+
     Shader* pShader;
     Shader* pSimpleDepthShader;
     Shader* pDebugDepthQuad;
 
-    GLuint planeVAO, planeVBO;
+    GLuint planeVAO;
+    GLuint planeVBO;
     GLuint woodTexture;
-    GLuint cubeVAO, cubeVBO;
-    GLuint quadVAO, quadVBO;
+    GLuint depthMapFBO;
+    GLuint depthMap;
 
-    GLuint depthMapFBO, depthMap;
-    int shadowWidth, shadowHeight;
-    int srcWidth, srcHeight;
+    unsigned int cubeVAO = 0;
+    unsigned int cubeVBO = 0;
+    unsigned int quadVAO = 0;
+    unsigned int quadVBO;
 
     glm::mat4 lightProjection;
     glm::mat4 lightView;
-
     glm::mat4 projection;
     glm::mat4 view;
     glm::vec3 cameraPosition;
     glm::vec3 lightPos;
-
-    float near_plane, far_plane;
+    glm::mat4 lightSpaceMatrix;
+    float near_plane;
+    float far_plane;
 };
-

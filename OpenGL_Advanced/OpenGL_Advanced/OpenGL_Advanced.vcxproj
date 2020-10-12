@@ -96,6 +96,10 @@
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>opengl32.lib;assimp-vc141-mtd.lib;glew32d.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)..\..\Library\Assimp\lib\Debug\assimp-vc141-mtd.dll" "$(SolutionDir)x64\Debug" /Y
+xcopy "$(SolutionDir)..\..\Library\glew\bin\Debug\x64\glew32d.dll" "$(SolutionDir)x64\Debug" /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
