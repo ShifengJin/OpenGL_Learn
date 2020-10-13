@@ -341,6 +341,10 @@ Shadow::Shadow(int inShadowWidth, int inShadowHeight, int inSrcWidth, int inSrcH
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+    GLfloat borderColor[4] = { 1.f, 1.f, 1.f, 1.f };
+    glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
+
     // attach depth texture as FBO's depth buffer
     glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMap, 0);
@@ -490,6 +494,10 @@ void Shadow::renderQuad()
 
 void Shadow::Draw()
 {
+#define ENABLEGLCULLFACE 0
+#if ENABLEGLCULLFACE
+    glEnable(GL_CULL_FACE);
+#endif
     lightSpaceMatrix = lightProjection * lightView;
     // render scene from light's point of view
     pSimpleDepthShader->Use();
@@ -500,7 +508,14 @@ void Shadow::Draw()
     glClear(GL_DEPTH_BUFFER_BIT);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, woodTexture);
+#if ENABLEGLCULLFACE
+    glCullFace(GL_FRONT);
+#endif
     renderScene(pSimpleDepthShader);
+#if ENABLEGLCULLFACE
+    glCullFace(GL_BACK);
+    glDisable(GL_CULL_FACE);
+#endif
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
     // reset viewport

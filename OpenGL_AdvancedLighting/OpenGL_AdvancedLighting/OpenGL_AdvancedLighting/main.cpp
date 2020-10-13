@@ -107,7 +107,9 @@ int main() {
 #endif
 #if SHADOWMAPPINGBASE
     glEnable(GL_DEPTH_TEST);
-    Shadow* pShadow = new Shadow(1024, 1024, width, height);
+    int shadowWidth =  1024;
+    int shadowHeight = 1024;
+    Shadow* pShadow = new Shadow(shadowWidth, shadowHeight, width, height);
     glm::vec3 lightPos(-2.f, 4.f, -1.f);
     pShadow->SetLightPos(lightPos);
     float near_plane = 1.f;
@@ -174,7 +176,7 @@ int main() {
         pShadow->SetView(view);
         pShadow->SetCameraPosition(gCameraFPS.Position);
 
-        float near_plane = 1.0f, far_plane = 7.5f;
+        float near_plane = 0.1f, far_plane = 7.5f;
         lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
         lightView = glm::lookAt(lightPos, glm::vec3(0.0f), glm::vec3(0.0, 1.0, 0.0));
         pShadow->SetNearFar(near_plane, far_plane);
